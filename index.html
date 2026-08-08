@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Physio Care - Best Physiotherapy Clinic in Ambattur, Chennai</title>
+    <style>
+        :root {
+            --primary: #0077b6;
+            --primary-dark: #0096c7;
+            --secondary: #03045e;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--dark);
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .btn-call {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-call:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(3,4,94,0.85) 0%, rgba(0,119,182,0.85) 100%), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 160px 20px 100px;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .services {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: var(--secondary);
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 10px auto 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 12px;
+            color: var(--secondary);
+        }
+        
+        .contact-info {
+            background-color: var(--light);
+            padding: 80px 20px;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        
+        .info-panel, .appointment-form {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .info-item {
+            margin-bottom: 25px;
+        }
+        
+        .info-item h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .btn-submit {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background-color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">🩻 VR <span>Physio Care</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+918428589330" class="btn-call">Call Now</a>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Professional Physiotherapy Care in Ambattur</h1>
+            <p>Restore your mobility, reduce your pain, and reclaim your active lifestyle with personalized, expert physical therapy treatments.</p>
+            <a href="#contact" class="btn-call" style="padding: 15px 30px; font-size: 18px;">Book an Appointment</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">Our Specialities</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🦴</div>
+                <h3>Orthopaedic Rehab</h3>
+                <p>Expert recovery programs for joint pain, fractures, back stiffness, and post-surgical rehabilitation.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏃‍♂️</div>
+                <h3>Sports Physiotherapy</h3>
+                <p>Targeted treatments and targeted exercise therapy designed for athletes to return safely to performance.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧠</div>
+                <h3>Neurological Rehab</h3>
+                <p>Dedicated therapeutic care for stroke recovery, sciatica management, and balance coordination.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Pain Management</h3>
+                <p>Advanced physical modalities including therapeutic ultrasound and targeted electrical stimulation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-info" id="contact">
+        <div class="contact-container">
+            <div class="info-panel">
+                <h3 style="margin-bottom: 25px; color: var(--secondary);">Visit Our Clinic</h3>
+                <div class="info-item">
+                    <h4>📍 Clinic Address</h4>
+                    <p>Shobha Nagar, Ambattur,<br>Chennai, Avadi, Tamil Nadu 600053</p>
+                </div>
+                <div class="info-item">
+                    <h4>📞 Contact Number</h4>
+                    <p><a href="tel:+918428589330" style="color: var(--dark); text-decoration: none; font-weight: 600;">+91 84285 89330</a></p>
+                </div>
+                <div class="info-item">
+                    <h4>⏰ Working Hours</h4>
+                    <p>Monday - Saturday: 9:00 AM - 8:00 PM<br>Sunday: By Appointment Only</p>
+                </div>
+            </div>
+            
+            <div class="appointment-form">
+                <h3 style="margin-bottom: 25px; color: var(--secondary);">Request a Callback</h3>
+                <form onsubmit="alert('Thank you! We will get back to you shortly.'); return false;">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required placeholder="Enter 10-digit number">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Required Care</label>
+                        <select id="service">
+                            <option>Back / Neck Pain</option>
+                            <option>Joint / Knee Pain</option>
+                            <option>Sports Injury Rehab</option>
+                            <option>Post-Surgical Care</option>
+                            <option>Other Services</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-submit">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 VR Physio Care. All rights reserved. <br><small style="opacity: 0.7;">This is an informational landing page mockup template created for VR Physio Care clinic in Ambattur.</small></p>
+    </footer>
+
+</body>
+</html>
